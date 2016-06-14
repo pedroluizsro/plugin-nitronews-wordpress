@@ -6,7 +6,7 @@
  * Date: 24/05/16
  * Time: 21:26
  */
-class Controlador {
+class Utils {
 
     /**
      * Prepara os dados e monta a view.

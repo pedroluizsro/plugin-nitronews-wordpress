@@ -4,5 +4,5 @@
 <?php } else { ?>
 <strong>Chave inválida</strong>
 <?php } ?>
-<a href="<?= Controlador::gerarUrl(array('nova' => 1)) ?>">Cadastrar novo</a>
+<a href="<?= Utils::gerarUrl(array( 'nova' => 1)) ?>">Cadastrar novo</a>
 

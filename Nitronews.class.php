@@ -7,7 +7,7 @@
  * Time: 20:34
  */
 
-class Nitronews extends Controlador {
+class Nitronews extends Utils {
 
     public static function iniciar(){
 
@@ -18,6 +18,8 @@ class Nitronews extends Controlador {
         add_action('admin_menu', array('Nitronews','menuCamposPersonalizados'));
         add_action('admin_menu', array('Nitronews','menuRemetentes'));
 
+        wp_enqueue_script('jQuery',plugins_url('/javascript/jquery-2.2.4.min.js',__FILE__));
+        
     }
 
     public static function instalar(){
@@ -45,7 +47,7 @@ class Nitronews extends Controlador {
     }
 
     public static function insereMenu(){
-        add_menu_page('Plugin Nitronews','Nitronews',10,'nitronews',array('Nitronews','menuNitronews'),'',67);
+        add_menu_page('Plugin Nitronews','Nitronews',10,'nitronews',array('Nitronews','menuNitronews'),plugins_url('/imagens/favicon-16x16.png',__FILE__),67);
     }
 
     public static function menuNitronews(){
@@ -54,7 +56,7 @@ class Nitronews extends Controlador {
         if($_POST['chave']){
 
             //Carrega biblioteca.
-            Controlador::carregaBibliotecaNitronews($_POST['chave']);
+            Utils::carregaBibliotecaNitronews($_POST['chave']);
 
             //Testa se e valido.
             try{
