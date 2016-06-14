@@ -11,7 +11,9 @@ License: A "Slug" license name e.g. GPL2
 */
 
 spl_autoload_register(function ($classe) {
-    include $classe. '.class.php';
+    if(!strstr($classe,'Criaenvio')){
+        include $classe. '.class.php';
+    }
 });
 
 //Executa quando ativar o plugin.

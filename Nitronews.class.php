@@ -52,8 +52,18 @@ class Nitronews extends Controlador {
 
         //Caso haja chave no post, efetua inserção.
         if($_POST['chave']){
-            self::cadastrarChave($_POST['chave']);
-            return self::view('cadastrado',array('chave' => $_POST['chave'],'sucesso' => true));
+
+            Controlador::carregaBibliotecaNitronews($_POST['chave']);
+            try{
+                $parametros = array('ativo' => true);
+                $grupos = (new Criaenvio\Grupo())->buscar($parametros);
+                self::cadastrarChave($_POST['chave']);
+                return self::view('cadastrado',array('chave' => $_POST['chave'],'sucesso' => true));
+            } catch (Exception $e){
+                return self::view('cadastrado',array('chave' => '','sucesso' => false));
+            }
+
+
         }
 
         //Carrega chave da API e Biblioteca Criaenvio

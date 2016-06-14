@@ -37,11 +37,16 @@ class Controlador {
             die('View informada não existe.');
         }
 
+        $logo_nitronews = plugins_url('/imagens/nitronews.png',__FILE__);
+
+        echo "<br><br>";
+        echo "<img src=\"$logo_nitronews\">";
+
         include_once($arquivo);
 
     }
 
-    public static function carregaBibliotecaNitronews(){
+    public static function carregaBibliotecaNitronews($parchave = null){
         global $wpdb;
 
         $sql = "
@@ -50,12 +55,14 @@ class Controlador {
 
         $chaves = $wpdb->get_results($sql);
 
-        if(count($chaves)){
+        include_once('biblioteca-nitronews/Criaenvio_loader.php');
+
+        if($parchave){
+            define('NN_CHAVE', $parchave);
+            return $parchave;
+        } elseif (count($chaves)){
             foreach ($chaves as $chave) {
-
-                include_once('biblioteca-nitronews/Criaenvio_loader.php');
                 define('NN_CHAVE', $chave->chave);
-
                 return $chave->chave;
             }
         }

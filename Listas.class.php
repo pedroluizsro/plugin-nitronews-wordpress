@@ -9,7 +9,15 @@
 class Listas {
 
     public static function inicial(){
-        echo "<h2>Listas</h2>";
+
+        Controlador::carregaBibliotecaNitronews();
+
+        $parametros = array('ativo' => true);
+        $grupos = (new Criaenvio\Grupo())->buscar($parametros);
+
+
+        var_dump($grupos->getDados());
+
     }
 
 }
