@@ -53,7 +53,10 @@ class Nitronews extends Controlador {
         //Caso haja chave no post, efetua inserção.
         if($_POST['chave']){
 
+            //Carrega biblioteca.
             Controlador::carregaBibliotecaNitronews($_POST['chave']);
+
+            //Testa se e valido.
             try{
                 $parametros = array('ativo' => true);
                 $grupos = (new Criaenvio\Grupo())->buscar($parametros);
@@ -71,7 +74,7 @@ class Nitronews extends Controlador {
 
         //Verifica se possui chave e se quer cadastrar nova;
         if($chave AND !$_GET['nova']){
-            return self::view('cadastrado',array('chave' => $chave));
+            return self::view('cadastrado',array('chave' => $chave,'sucesso' => true));
         }
 
         //Retorna view para cadastro.
