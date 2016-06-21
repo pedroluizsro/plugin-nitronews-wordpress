@@ -4,21 +4,32 @@
 $(document).ready( function () {
 
     $('#listas').on('click','.ativar-lista',function () {
-        var idlista = $(this).data('id');
+        var lista = $(this);
+        var idlista = lista.data('id');
         var url = $('#listas').data('url');
-        $.ajax({
-            url: url,
-            method: 'post',
-            data: {
-                id: idlista,
-                acao: 'ativar'
-            },
-            dataType: 'json'
-        }).done(function(retorno) {
+        var btext = lista.text();
+        if(!lista.prop('disabled')){
+            lista.text('...').prop('disabled',true);
+            $.ajax({
+                url: url,
+                method: 'post',
+                data: {
+                    id: idlista,
+                    acao: 'ativar'
+                },
+                dataType: 'json'
+            }).done(function(retorno) {
 
+                if(retorno.sucesso == "ok"){
+                    lista.text('Y').removeClass('ativar-lista').addClass('desativar-lista');
+                }
 
-
-        });
+            }).always(function () {
+                lista.prop('disabled',false);
+            }).fail(function () {
+                lista.text(btext);
+            });
+        }
     });
 
 });
