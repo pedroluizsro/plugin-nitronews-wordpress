@@ -10,6 +10,10 @@ class Listas extends Utils{
 
     public static function inicial(){
 
+
+        //Insere Script
+        wp_enqueue_script('Listas',plugins_url('/javascript/listas.js',__FILE__));
+
         //Inicia array de listas;
         $dados['listas'] = array();
 
@@ -36,6 +40,10 @@ class Listas extends Utils{
 
         //Ordena listas em ordem alfabética
         sort($dados['listas']);
+
+        //Armazena URL de ação.
+        $dados['actionCriarLista'] = plugins_url('/plugin-nitronews-wordpress/actions/ListasAtivarDesativar.php');
+
         return self::view('listagem_listas',$dados);
 
     }
