@@ -32,4 +32,33 @@ $(document).ready( function () {
         }
     });
 
+    $('#listas').on('click','.desativar-lista',function () {
+        var lista = $(this);
+        var idlista = lista.data('id');
+        var url = $('#listas').data('url');
+        var btext = lista.text();
+        if(!lista.prop('disabled')){
+            lista.text('...').prop('disabled',true);
+            $.ajax({
+                url: url,
+                method: 'post',
+                data: {
+                    id: idlista,
+                    acao: 'desativar'
+                },
+                dataType: 'json'
+            }).done(function(retorno) {
+
+                if(retorno.sucesso == "ok"){
+                    lista.text('N').removeClass('desativar-lista').addClass('ativar-lista');
+                }
+
+            }).always(function () {
+                lista.prop('disabled',false);
+            }).fail(function () {
+                lista.text(btext);
+            });
+        }
+    });
+
 });

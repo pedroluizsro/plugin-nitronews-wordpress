@@ -6,10 +6,9 @@
  * Date: 24/05/16
  * Time: 20:08
  */
-class Listas extends Utils{
+class Listas extends Utils {
 
     public static function inicial(){
-
 
         //Insere Script
         wp_enqueue_script('Listas',plugins_url('/javascript/listas.js',__FILE__));
