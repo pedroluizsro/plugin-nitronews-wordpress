@@ -32,6 +32,8 @@ class Envios extends Utils {
             $contador++;
         }
 
+        $dados['actionVerMensagem'] = plugins_url('/plugin-nitronews-wordpress/actions/verMensagem.php');
+
         return self::view('listagem_envios',$dados);
 
     }

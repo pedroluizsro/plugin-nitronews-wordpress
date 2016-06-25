@@ -4,12 +4,13 @@
         <td>#ID</td>
         <td>Assunto</td>
         <td>Status</td>
+        <td>Mensagem</td>
     </tr>
     <?php foreach ($envios as $envio) { ?>
         <tr data-id="<?= $envio->id ?>">
             <td><?= $envio->codigo ?></td>
             <td><?= $envio->mensagem->assunto ?></td>
-            <td>
+            <td style="text-align: center;">
                 <?= $envio->status ?>
                 <?php if($envio->status == "Agendado"){ ?>
                     <br>
@@ -18,6 +19,11 @@
                     <br>
                     (<?= explode(".",$envio->porcentagem_de_conclusao)[0] ?>%)
                 <?php } ?>
+            </td>
+            <td>
+                <a target="_blank" href="<?= $actionVerMensagem ?>?id=<?= $envio->mensagem->id ?>">
+                    Ver Mensagem
+                </a>
             </td>
         </tr>
     <?php } ?>
