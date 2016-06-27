@@ -33,6 +33,7 @@ class Envios extends Utils {
         }
 
         $dados['actionVerMensagem'] = plugins_url('/plugin-nitronews-wordpress/actions/verMensagem.php');
+        $dados['actionStatusEnvio'] = plugins_url('/plugin-nitronews-wordpress/actions/statusEnvio.php');
 
         return self::view('listagem_envios',$dados);
 

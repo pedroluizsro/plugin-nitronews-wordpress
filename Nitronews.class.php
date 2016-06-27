@@ -13,10 +13,7 @@ class Nitronews extends Utils {
 
         add_action('admin_menu', array('Nitronews','insereMenu'));
         add_action('admin_menu', array('Nitronews','menuListas'));
-        add_action('admin_menu', array('Nitronews','menuMensagens'));
         add_action('admin_menu', array('Nitronews','menuEnvios'));
-        add_action('admin_menu', array('Nitronews','menuCamposPersonalizados'));
-        add_action('admin_menu', array('Nitronews','menuRemetentes'));
 
         wp_enqueue_script('jQuery',plugins_url('/javascript/jquery-2.2.4.min.js',__FILE__));
         

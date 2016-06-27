@@ -6,7 +6,7 @@ Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Plugin de Wordpress para o sistema de e-mail marketing Nitronews.
 Version: 1.0
 Author: Pedro Luiz Sroczynski
-Author URI: http://URI_Of_The_Plugin_Author
+Author URI: http://www.nitronews.com.br/
 License: A "Slug" license name e.g. GPL2
 */
 
