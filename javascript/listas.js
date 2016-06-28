@@ -21,7 +21,7 @@ $(document).ready( function () {
             }).done(function(retorno) {
 
                 if(retorno.sucesso == "ok"){
-                    lista.text('Y').removeClass('ativar-lista').addClass('desativar-lista');
+                    lista.text('Desativar').removeClass('ativar-lista').addClass('desativar-lista');
                 }
 
             }).always(function () {
@@ -50,7 +50,7 @@ $(document).ready( function () {
             }).done(function(retorno) {
 
                 if(retorno.sucesso == "ok"){
-                    lista.text('N').removeClass('desativar-lista').addClass('ativar-lista');
+                    lista.text('Ativar').removeClass('desativar-lista').addClass('ativar-lista');
                 }
 
             }).always(function () {

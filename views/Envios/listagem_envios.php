@@ -1,5 +1,17 @@
-<h1>Listas</h1>
-<table border="1">
+<style>
+    table#envios {
+        width: 700px;
+        border: 1px solid gray;
+    }
+    table#envios thead {
+        background-color: lightgray;
+    }
+    table#envios td {
+        border: 1px solid gray;
+    }
+</style>
+<h1>Envios</h1>
+<table id="envios">
     <tr>
         <td>#ID</td>
         <td>Assunto</td>
@@ -24,9 +36,11 @@
                     <a href="<?= $actionStatusEnvio ?>?acao=1&id=<?= $envio->id ?>">Iniciar</a>
                 <?php } ?>
             </td>
-            <td>
+            <td style="text-align: center;">
                 <a target="_blank" href="<?= $actionVerMensagem ?>?id=<?= $envio->mensagem->id ?>">
-                    Ver Mensagem
+                    Ver
+                    <br>
+                    Mensagem
                 </a>
             </td>
         </tr>
